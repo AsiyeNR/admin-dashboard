@@ -1,57 +1,70 @@
-import Sidebar from "../components/Sidebar"
-import Navbar from "../components/Navbar"
-import { useState } from "react"
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer
+} from "recharts"
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+type Props = {
+  period?: string
+}
 
-  // Mobile sidebar open state
-  const [sidebarOpen, setSidebarOpen] = useState(false)
+// Fake datasets
+const todayData = [
+  { name: "09:00", revenue: 400 },
+  { name: "12:00", revenue: 900 },
+  { name: "15:00", revenue: 600 },
+  { name: "18:00", revenue: 1200 },
+]
 
-  // Desktop collapse state
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
+const weekData = [
+  { name: "Mon", revenue: 2400 },
+  { name: "Tue", revenue: 1398 },
+  { name: "Wed", revenue: 9800 },
+  { name: "Thu", revenue: 3908 },
+  { name: "Fri", revenue: 4800 },
+  { name: "Sat", revenue: 3800 },
+  { name: "Sun", revenue: 4300 },
+]
+
+const monthData = [
+  { name: "Week 1", revenue: 12000 },
+  { name: "Week 2", revenue: 18500 },
+  { name: "Week 3", revenue: 14200 },
+  { name: "Week 4", revenue: 21000 },
+]
+
+export default function DashboardChart({ period }: Props) {
+
+  let data = todayData
+
+  if (period === "week") data = weekData
+  if (period === "month") data = monthData
 
   return (
-    <div className="flex h-screen bg-slate-100 dark:bg-slate-900">
+    <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow">
 
-      {/* Mobile Overlay */}
-      {sidebarOpen && (
-        <div
-          onClick={() => setSidebarOpen(false)}
-          className="fixed inset-0 bg-black/40 z-20 lg:hidden"
-        />
-      )}
+      <h2 className="text-lg font-semibold mb-4 text-slate-800 dark:text-white">
+        Revenue Analytics
+      </h2>
 
-      {/* Sidebar */}
-      <div
-        className={`
-          fixed lg:static z-30
-          h-full
-          transform transition-transform duration-300
-          ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
-          lg:translate-x-0
-        `}
-      >
-        <Sidebar collapsed={sidebarCollapsed} />
-      </div>
-
-      {/* Main Content */}
-      <div className="flex flex-col flex-1">
-
-        <Navbar
-          onMenuClick={() => {
-            // Mobile open
-            setSidebarOpen(true)
-
-            // Desktop collapse toggle
-            setSidebarCollapsed(!sidebarCollapsed)
-          }}
-        />
-
-        <main className="p-6 overflow-y-auto">
-          {children}
-        </main>
-
-      </div>
+      <ResponsiveContainer width="100%" height={300}>
+        <LineChart data={data}>
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Line
+            type="monotone"
+            dataKey="revenue"
+            stroke="#2563eb"
+            strokeWidth={3}
+            dot={false}
+            animationDuration={600}
+          />
+        </LineChart>
+      </ResponsiveContainer>
 
     </div>
   )
