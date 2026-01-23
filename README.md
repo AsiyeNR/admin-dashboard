@@ -1,6 +1,6 @@
 ## 🌍 Live Demo
 
-👉 https://admin-panel-2iv76ngnb-asiyenrs-projects.vercel.app
+👉 https://admin-dashboard-three-gray-71.vercel.app/
 # 🚀 Admin Dashboard Panel
 
 Modern, responsive ve production-ready bir admin dashboard paneli.  
