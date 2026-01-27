@@ -1,36 +1,72 @@
-## 🌍 Live Demo
+# React Admin Dashboard
 
-👉 https://admin-dashboard-three-gray-71.vercel.app/
-# 🚀 Admin Dashboard Panel
+Production-ready admin dashboard built with React, TypeScript and Tailwind CSS.
+---
 
-Modern, responsive ve production-ready bir admin dashboard paneli.  
-React + TypeScript + TailwindCSS kullanılarak geliştirilmiştir.
+## Features
+
+✔ Authentication system  
+✔ Protected routes  
+✔ Responsive layout  
+✔ Dark / Light mode  
+✔ Analytics dashboard  
+✔ Charts with Recharts  
+✔ User management table  
+✔ Clean component architecture  
+✔ TypeScript support  
+✔ Vite optimized build  
 
 ---
 
-## ✨ Features
+## Tech Stack
 
-- 🔐 Authentication system (Login flow)
-- 🧭 Protected routes (Auth guard)
-- 📊 Dashboard analytics charts
-- 📋 Users management table
-- 🌗 Dark / Light mode support
-- 📱 Fully responsive layout
-- 🧩 Modular component structure
-- ⚡ Fast Vite build system
+- React  
+- TypeScript  
+- Tailwind CSS  
+- Vite  
+- Recharts  
 
 ---
 
-## 🛠 Tech Stack
+## Demo Login Credentials
 
-- **Frontend:** React + TypeScript
-- **Styling:** Tailwind CSS
-- **Routing:** React Router v6
-- **State Management:** Context API
-- **Charts:** Recharts
-- **Build Tool:** Vite
-- **Version Control:** Git + GitHub
+Email: admin@admin.com  
+Password: 123456  
 
 ---
 
-## 📂 Project Structure
+## Installation
+
+```bash
+git clone https://github.com/AsiyeNR/admin-dashboard.git
+npm install
+npm run dev
+```
+
+---
+
+## Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+VITE_API_URL=
+```
+
+---
+
+## Build for Production
+
+```bash
+npm run build
+```
+
+---
+
+## License
+
+Commercial License.
+
+Redistribution and reselling of this project is prohibited.
+
+
